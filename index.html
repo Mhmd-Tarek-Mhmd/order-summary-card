@@ -7,6 +7,177 @@
     <title>Order summary card</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --bg: 225, 100%, 94%;
+        --blue: hsl(245, 75%, 52%);
+        --gray: hsl(224, 23%, 55%);
+        --headings: hsl(223, 47%, 23%);
+      }
+      body {
+        height: 100vh;
+        display: grid;
+        min-height: 750px;
+        place-items: center;
+        background: url(images/pattern-background-desktop.svg) no-repeat top
+          left / 100% 437px hsl(var(--bg));
+      }
+      @media (max-width: 500px) {
+        body {
+          background-size: 100% 194px;
+          background-image: url(images/pattern-background-mobile.svg);
+        }
+      }
+
+      /*
+        Card component
+      */
+
+      .card {
+        display: grid;
+        text-align: center;
+        border-radius: 10px;
+        background-color: #fff;
+        grid-template-columns: 450px;
+        grid-template-rows: 220px 477px;
+        font: 500 16px/1 "Red Hat Display", sans-serif;
+      }
+      .card-img,
+      .card-img img {
+        max-width: 100%;
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+      }
+      .card-body {
+        gap: 20px;
+        display: grid;
+        padding: 0 48px;
+        place-content: center;
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+      }
+      @media (max-width: 500px) {
+        .card {
+          grid-template-rows: 160px 407px;
+          grid-template-columns: minmax(0, 327px);
+        }
+        .card-body {
+          gap: 25px;
+          padding: 0 24px;
+        }
+      }
+
+      /* Summary */
+
+      .card-body .summary {
+      }
+      .card-body .summary h2 {
+        font-weight: 900;
+        margin-bottom: 20px;
+        color: var(--headings);
+      }
+      @media (min-width: 501px) {
+        .card-body .summary h2 {
+          font-size: 1.7em;
+          margin-bottom: 22px;
+        }
+      }
+      .card-body .summary p {
+        padding: 0 5px;
+        line-height: 1.5;
+        color: var(--gray);
+      }
+
+      /* Plan */
+
+      .card-body .plan,
+      .card-body .plan .wrapper {
+        display: flex;
+        align-items: center;
+      }
+      .card-body .plan {
+        height: 100px;
+        padding: 0 24px;
+        color: var(--gray);
+        border-radius: 10px;
+        justify-content: space-between;
+        background-color: hsla(var(--bg), 0.3);
+      }
+      @media (max-width: 500px) {
+        .card-body .plan {
+          height: 80px;
+          font-size: 14px;
+          padding: 0 16px;
+        }
+      }
+      .card-body .plan .wrapper {
+        gap: 20px;
+      }
+      .card-body .plan h3 {
+        font-size: 1em;
+        font-weight: 900;
+        margin-bottom: 6px;
+        color: var(--headings);
+      }
+      .card-body .plan a {
+        font-weight: 700;
+        color: var(--blue);
+        will-change: opacity;
+        transition: 0.3s opacity;
+      }
+      .card-body .plan a:hover {
+        opacity: 0.8;
+      }
+
+      /* Options */
+
+      .card-body .options {
+        gap: 26px;
+        display: grid;
+      }
+      @media (min-width: 501px) {
+        .card-body .options {
+          gap: 34px;
+          margin-top: 10px;
+        }
+      }
+      .card-body .options button {
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        background: none;
+        font-weight: 900;
+        color: var(--gray);
+      }
+      .card-body .options button:first-child {
+        height: 50px;
+        border-radius: 10px;
+        will-change: opacity;
+        transition: opacity 0.3s;
+        color: hsl(225, 100%, 98%);
+        background-color: var(--blue);
+        box-shadow: 1px 12px 18px -9px var(--gray);
+      }
+      .card-body .options button:first-child:hover {
+        opacity: 0.8;
+      }
+      .card-body .options button:last-child {
+        color: var(--gray);
+        will-change: color;
+      }
+      .card-body .options button:last-child:hover {
+        color: var(--headings);
+      }
+    </style>
   </head>
   <body>
     <main>
